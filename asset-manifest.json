@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/typewriter/static/css/main.4fcb280f.css",
+    "main.js": "/typewriter/static/js/main.4147ecfd.js",
+    "index.html": "/typewriter/index.html",
+    "main.4fcb280f.css.map": "/typewriter/static/css/main.4fcb280f.css.map",
+    "main.4147ecfd.js.map": "/typewriter/static/js/main.4147ecfd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4fcb280f.css",
+    "static/js/main.4147ecfd.js"
+  ]
+}
