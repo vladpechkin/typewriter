@@ -117,8 +117,8 @@ ${navigator.language.includes("ru") ? TUTORIAL_RU : TUTORIAL_EN}`);
       <div className="typewriter">
         <div className="pointer" style={{ height: CHAR_HEIGHT }}></div>
         <div className="scale">
-          {Array.from({ length: 22 }, () => (
-            <div className="mark"></div>
+          {Array.from({ length: 22 }, (_, index) => (
+            <div className="mark" key={index}></div>
           ))}
 
           <div
