@@ -19,7 +19,7 @@ const App = () => {
 
   const ref = useRef(null);
 
-  const [isTutorialComplete, setIstutorialComplete] = useState(false);
+  const [isTutorialComplete, setIsTutorialComplete] = useState(false);
 
   const [padding, setPadding] = useState(2);
 
@@ -28,7 +28,7 @@ const App = () => {
   const keyHandler = useCallback(
     (event) => {
       if (!isTutorialComplete) {
-        setIstutorialComplete(true);
+        setIsTutorialComplete(true);
         setText("");
         setYOffset(0);
       }
