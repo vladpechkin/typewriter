@@ -3,11 +3,11 @@
 
   --page-bg: #fff;
 
-  /* @media (prefers-color-scheme: dark) {
+  @media (prefers-color-scheme: dark) {
     --bg: #000;
 
     --page-bg: #e0c9a6;
-  } */
+  }
 }
 
 body {
