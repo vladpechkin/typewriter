@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/typewriter/static/css/main.772db58c.css",
-    "main.js": "/typewriter/static/js/main.cf6e3089.js",
+    "main.css": "/typewriter/static/css/main.37fb3b6b.css",
+    "main.js": "/typewriter/static/js/main.1a433d70.js",
     "static/media/bell.mp3": "/typewriter/static/media/bell.58db3a850884862bd115.mp3",
     "index.html": "/typewriter/index.html",
-    "main.772db58c.css.map": "/typewriter/static/css/main.772db58c.css.map",
-    "main.cf6e3089.js.map": "/typewriter/static/js/main.cf6e3089.js.map"
+    "main.37fb3b6b.css.map": "/typewriter/static/css/main.37fb3b6b.css.map",
+    "main.1a433d70.js.map": "/typewriter/static/js/main.1a433d70.js.map"
   },
   "entrypoints": [
-    "static/css/main.772db58c.css",
-    "static/js/main.cf6e3089.js"
+    "static/css/main.37fb3b6b.css",
+    "static/js/main.1a433d70.js"
   ]
 }
