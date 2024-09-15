@@ -32,14 +32,15 @@ body {
   left: 0;
 }
 
-.typewriter {
+.pointer {
   position: fixed;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 20px;
+  border-color: black;
+  border-width: 0 4px;
+  border-style: solid;
 
   @media print {
     display: none;
@@ -48,13 +49,6 @@ body {
   @media (max-width: 1000px) {
     display: none;
   }
-}
-
-.pointer {
-  width: 20px;
-  border-color: black;
-  border-width: 0 4px;
-  border-style: solid;
 }
 
 .scale {

@@ -13,23 +13,20 @@ import {
 
 const App = () => {
   const [xOffset, setXOffset] = useState(0);
-  const [yOffset, setYOffset] = useState(CHAR_HEIGHT * 25);
-
+  const [yOffset, setYOffset] = useState(0);
   const [text, setText] = useState("");
 
   const ref = useRef(null);
-
-  const [isTutorialComplete, setIsTutorialComplete] = useState(false);
-
-  const [padding, setPadding] = useState(2);
-
   const bell = useMemo(() => new Audio(bellMp3), []);
 
   const keyHandler = useCallback(
     (event) => {
-      if (!isTutorialComplete) {
-        setIsTutorialComplete(true);
+      const isGuided = localStorage.getItem("guided");
+
+      if (isGuided !== "true") {
+        localStorage.setItem("guided", "true");
         setText("");
+        setXOffset(0);
         setYOffset(0);
       }
 
@@ -82,21 +79,27 @@ const App = () => {
 
       return;
     },
-    [xOffset, yOffset, bell, isTutorialComplete]
+    [xOffset, yOffset, bell]
   );
 
   useEffect(() => {
-    setText(`TYPEWRITER
-by @vladpechkin
-
-${navigator.language.includes("ru") ? TUTORIAL_RU : TUTORIAL_EN}`);
-
     document.addEventListener("keydown", keyHandler, false);
 
     return () => {
       document.removeEventListener("keydown", keyHandler, false);
     };
   }, [keyHandler]);
+
+  useEffect(() => {
+    const isGuided = localStorage.getItem("guided");
+    if (isGuided !== "true") {
+      setText(`TYPEWRITER
+by @vladpechkin
+      
+${navigator.language.includes("ru") ? TUTORIAL_RU : TUTORIAL_EN}`);
+      setYOffset(CHAR_HEIGHT * 25);
+    }
+  }, []);
 
   return (
     <>
@@ -107,30 +110,14 @@ ${navigator.language.includes("ru") ? TUTORIAL_RU : TUTORIAL_EN}`);
         onChange={({ target }) => setText(target.value)}
         focus={{ preventScroll: true }}
         style={{
-          padding: `${padding}cm`,
-          left: `calc(50% - ${padding}cm - ${CHAR_WIDTH / 2}px - ${xOffset}px)`,
-          top: `calc(100% - 2cm - 10px - ${CHAR_HEIGHT}px - ${yOffset}px)`,
+          padding: `2cm`,
+          left: `calc(50% - 2cm - ${CHAR_WIDTH / 2}px - ${xOffset}px)`,
+          top: `calc(100% - 2cm - ${CHAR_HEIGHT}px - ${yOffset}px)`,
         }}
         className="page"
         onBlur={({ target }) => target.focus()}
-      ></textarea>
-      <div className="typewriter">
-        <div className="pointer" style={{ height: CHAR_HEIGHT }}></div>
-        <div className="scale">
-          {Array.from({ length: 22 }, (_, index) => (
-            <div className="mark" key={index}></div>
-          ))}
-
-          <div
-            className="finger"
-            style={{ left: `calc(${padding}cm - 2px)` }}
-          ></div>
-          <div
-            className="finger"
-            style={{ right: `calc(${padding}cm - 2px)` }}
-          ></div>
-        </div>
-      </div>
+      />
+      <div className="pointer" style={{ height: CHAR_HEIGHT }} />
     </>
   );
 };
